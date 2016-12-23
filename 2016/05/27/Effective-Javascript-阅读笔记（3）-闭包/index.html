@@ -6,7 +6,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Archives | Zhai Yingying&#39;s Blog</title>
+  <title> Effective Javascript 阅读笔记（3）-闭包 | Zhai Yingying&#39;s Blog</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -73,7 +73,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -157,117 +157,102 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      <!-- ============================ Hero Image =========================== -->
-
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(/img/bg_img.jpg) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div>
-                        
-                        <h2>THANK YOU FOR <SPAN>COMMING</SPAN> IN MY NEST IN THE MOMENT,WELCOME</h2>
-                        <p></p>
-                        
-                        <h2></h2>
-                        <p><span>究竟什么时候才要收拾行囊，踏上去梦想的路?</span></p>
-                        
-
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
-
-
-
-
-<section id="services">
+      
+<section id="intro">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="row boxes">
-                    
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/05/27/Effective-Javascript-阅读笔记（3）-闭包/"> Effective Javascript 阅读笔记（3）-闭包</a></h4>
-                            
-                            <p><time datetime="2016-05-27T06:44:05.000Z"><a href="/2016/05/27/Effective-Javascript-阅读笔记（3）-闭包/">2016-05-27</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/05/26/Effective-Javascript-阅读笔记（2）-了解分号插入的局限/">Effective Javascript 阅读笔记（2）-了解分号插入的局限 </a></h4>
-                            
-                            <p><time datetime="2016-05-26T08:35:31.000Z"><a href="/2016/05/26/Effective-Javascript-阅读笔记（2）-了解分号插入的局限/">2016-05-26</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/05/26/Effective-Javascript-阅读笔记（1）-理解Javascript-的浮点数/">Effective Javascript  阅读笔记（1）-理解Javascript 的浮点数 </a></h4>
-                            
-                            <p><time datetime="2016-05-26T04:00:00.000Z"><a href="/2016/05/26/Effective-Javascript-阅读笔记（1）-理解Javascript-的浮点数/">2016-05-26</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/05/06/js代码实现-clipboard/">js代码实现 clipboard </a></h4>
-                            
-                            <p><time datetime="2016-05-06T06:06:00.000Z"><a href="/2016/05/06/js代码实现-clipboard/">2016-05-06</a></time></p>
-                        </div>
-                    
-                        
-                            </div><div class="row boxes">
-                            
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/05/01/hexo 使用简介/">hexo 使用简介</a></h4>
-                            
-                            <p><time datetime="2016-05-01T06:06:00.000Z"><a href="/2016/05/01/hexo 使用简介/">2016-05-01</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/05/01/hexo 个人博客创建 /">hexo 个人博客创建</a></h4>
-                            
-                            <p><time datetime="2016-05-01T05:00:13.000Z"><a href="/2016/05/01/hexo 个人博客创建 /">2016-05-01</a></time></p>
-                        </div>
-                    
-                </div>
-            </div>    
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-05-27T06:44:05.000Z" itemprop="datePublished">
+          2016-05-27
+      </time>
+    
+</span>
+                <h1> Effective Javascript 阅读笔记（3）-闭包</h1>
+            </div>
         </div>
-    </div>
-</section> 
+        <div class="col-md-8 col-md-offset-2">
+      		<p>在读这篇文章之前，自己听过很多人对闭包的不同的解释，好像一直没有一个确定的定义，而自己对闭包的理解概念：函数在执行的时候会形成一个私有的作用域，函数只想完成之后而且这个作用域不被销毁，就成为闭包。</p>
+<p>今天翻阅<a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html" target="_blank" rel="external">阮一峰</a>的博客，他在介绍闭包的概念是，是做的这样的解释：</p>
+<p><em>闭包就是能够读取其他函数内部变量的函数。</em></p>
+<p><em>由于在Javascript语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解成”定义在一个函数内部的函数”。</em></p>
+<p><em>所以，在本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。</em></p>
+<p>在本书中，对闭包的理解是这样解释的：</p>
+<ul>
+<li>JavaScript 语序引用在当前函数以外定义的变量</li>
+<li>即使外部函数已经返回，当前函数依旧可以医用在外部函数所定义的变量</li>
+<li>闭包比创建他们的函数有更长的生命周期</li>
+<li>闭包在内部存储器外部变量的引用，并能够读写这些变量</li>
+</ul>
+<p>下面对每一句进行列举说明</p>
+<p>1、JavaScript 语序引用在当前函数以外定义的变量</p>
+<pre><code>function grades(){
+    var gradesNum=&quot;First grade&quot;;
+    function student(name){
+      return gradesNum+name;
+  }
+  return student(&apos;xiaoming&apos;)
+}
+</code></pre><p><img src="quiver-image-url/01FBD1DE2CD90A91D3F5FDF7FD48267A.png" alt=""></p>
+<p>此处student函数，引用了外部的函数grades中的变量gradesNum</p>
+<p>2、即使外部函数已经返回，当前函数依旧可以医用在外部函数所定义的变量</p>
+<pre><code>function grades(){
+    var gradesNum=&quot;First grade&quot;;
+    function student(name){
+      return gradesNum+name;
+  }
+  return student;
+}
 
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>一个非专业前端程序媛</p>
+var s=grades();
+s(&apos;xiaoming&apos;);
+s(&apos;xiaohong&apos;)
+</code></pre><p><img src="quiver-image-url/C825A80112D288E3F0BFEB02446053FE.png" alt=""></p>
+<p>在此函数中，看起来跟上面函数类似，但不同的是，上面的函数直接调用函数student(‘xiaoming’)，但是下面的函数返回的是函数student。s的值为内部的student函数，但实际上s是调用了student函数。即使函数grades已经返回，但是依旧可以记住并且使用gradesNum的值。</p>
+<p>我们可以编写更加通用，优雅的函数</p>
+<p><img src="quiver-image-url/DB453FB1E73C38265DC5369456B5EF6F.png" alt=""></p>
+<p>3、闭包在内部存储器外部变量的引用，并能够读写这些变量</p>
+<pre><code>function grades(){
+    var gradesNum=undefined;
+   return {
+    set:function(newGrades){gradesNum=newGrades},
+    get:function(){return gradesNum;},
+    type:function(){return typeof gradesNum;}
+  }
+}
+</code></pre><p><img src="quiver-image-url/F751EFA0CAB581C636DA136A05C3ADFC.png" alt=""></p>
+<p>该例子产生了一个包含三个闭包的对象。这三个闭包是set、get、type属性。他们共同访问gradesNum。set闭包更新了其值。</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/2016/05/26/Effective-Javascript-阅读笔记（2）-了解分号插入的局限/">
+        Effective Javascript 阅读笔记（2）-了解分号插入的局限  →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+<div class="ds-thread" data-thread-key="2016/05/27/Effective-Javascript-阅读笔记（3）-闭包/" data-title=" Effective Javascript 阅读笔记（3）-闭包" data-url="http://yoursite.com/2016/05/27/Effective-Javascript-阅读笔记（3）-闭包/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"zhaiyy"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+</div>
     </div>
 </section>
+
+
       
 <!-- ============================ Footer =========================== -->
 
