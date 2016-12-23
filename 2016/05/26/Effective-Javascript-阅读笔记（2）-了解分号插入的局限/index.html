@@ -6,7 +6,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Archives | Zhai Yingying&#39;s Blog</title>
+  <title>Effective Javascript 阅读笔记（2）-了解分号插入的局限  | Zhai Yingying&#39;s Blog</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -73,7 +73,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -157,108 +157,134 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      <!-- ============================ Hero Image =========================== -->
-
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(/img/bg_img.jpg) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div>
-                        
-                        <h2>THANK YOU FOR <SPAN>COMMING</SPAN> IN MY NEST IN THE MOMENT,WELCOME</h2>
-                        <p></p>
-                        
-                        <h2></h2>
-                        <p><span>究竟什么时候才要收拾行囊，踏上去梦想的路?</span></p>
-                        
-
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
-
-
-
-
-<section id="services">
+      
+<section id="intro">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="row boxes">
-                    
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/05/26/Effective-Javascript-阅读笔记（2）-了解分号插入的局限/">Effective Javascript 阅读笔记（2）-了解分号插入的局限 </a></h4>
-                            
-                            <p><time datetime="2016-05-26T08:35:31.000Z"><a href="/2016/05/26/Effective-Javascript-阅读笔记（2）-了解分号插入的局限/">2016-05-26</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/05/26/Effective-Javascript-阅读笔记（1）-理解Javascript-的浮点数/">Effective Javascript  阅读笔记（1）-理解Javascript 的浮点数 </a></h4>
-                            
-                            <p><time datetime="2016-05-26T04:00:00.000Z"><a href="/2016/05/26/Effective-Javascript-阅读笔记（1）-理解Javascript-的浮点数/">2016-05-26</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/05/06/js代码实现-clipboard/">js代码实现 clipboard </a></h4>
-                            
-                            <p><time datetime="2016-05-06T06:06:00.000Z"><a href="/2016/05/06/js代码实现-clipboard/">2016-05-06</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/05/01/hexo 使用简介/">hexo 使用简介</a></h4>
-                            
-                            <p><time datetime="2016-05-01T06:06:00.000Z"><a href="/2016/05/01/hexo 使用简介/">2016-05-01</a></time></p>
-                        </div>
-                    
-                        
-                            </div><div class="row boxes">
-                            
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/05/01/hexo 个人博客创建 /">hexo 个人博客创建</a></h4>
-                            
-                            <p><time datetime="2016-05-01T05:00:13.000Z"><a href="/2016/05/01/hexo 个人博客创建 /">2016-05-01</a></time></p>
-                        </div>
-                    
-                </div>
-            </div>    
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-05-26T08:35:31.000Z" itemprop="datePublished">
+          2016-05-26
+      </time>
+    
+</span>
+                <h1>Effective Javascript 阅读笔记（2）-了解分号插入的局限 </h1>
+            </div>
         </div>
-    </div>
-</section> 
+        <div class="col-md-8 col-md-offset-2">
+      		<pre><code>function add(x,y) {
+    this.x = x||0
+    this.y = y||0
+  }
+</code></pre><p>在JavaScript，我们写让上面的代码，省略分号的使用，此段代码依旧会正常执行。这样就使得代码变得更加轻量而优雅。这段代码之所以可以正常执行，主要是依赖于JavaScript的自动分号插入技术。它是一种解析技术，能够推断出上下文省略的分号，然后有效的自动将分号‘插入’到程序中。但是分号插入也有陷阱，所以就需要学习分号插入的规则。</p>
+<h3 id="1、仅在“-”标记之前，一行的结束之后以及程序结束处推导分号"><a href="#1、仅在“-”标记之前，一行的结束之后以及程序结束处推导分号" class="headerlink" title="1、仅在“}”标记之前，一行的结束之后以及程序结束处推导分号"></a>1、仅在“}”标记之前，一行的结束之后以及程序结束处推导分号</h3><p>这段函数的定义是合法的</p>
+<pre><code>function add(x,y) {
+  var n = x+y
+  return n*n
+}
+function add1(r){ return r+1}
+function add2(x){ x =+x;return x}
+</code></pre><p>这段函数的定义是不合法的</p>
+<pre><code>function add2(x){ x=+x return x}
+</code></pre><h3 id="2、仅在紧接着的标记不能被解析的时候推导分号（分号插入也是一种错误矫正机制）"><a href="#2、仅在紧接着的标记不能被解析的时候推导分号（分号插入也是一种错误矫正机制）" class="headerlink" title="2、仅在紧接着的标记不能被解析的时候推导分号（分号插入也是一种错误矫正机制）"></a>2、仅在紧接着的标记不能被解析的时候推导分号（分号插入也是一种错误矫正机制）</h3><p>这段函数的定义是合法的</p>
+<pre><code>a = b
+f()
+</code></pre><p>这段函数的定义是不合法的</p>
+<pre><code>a = b
+(f())
+</code></pre><p>上面两段代码会分别被解析成</p>
+<pre><code>a = b f() //会被解析成两个独立的语句
 
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>一个非专业前端程序媛</p>
+a = b(f()) //会被解析成一条独立的语句
+</code></pre><h3 id="3、在以-、-、-、-或者以-字符开头的语句前绝不能省略分号"><a href="#3、在以-、-、-、-或者以-字符开头的语句前绝不能省略分号" class="headerlink" title="3、在以(、[、+、-或者以/字符开头的语句前绝不能省略分号"></a>3、在以(、[、+、-或者以/字符开头的语句前绝不能省略分号</h3><p>情况一</p>
+<p>这段函数的定义是合法的</p>
+<pre><code>a = b
+[&quot;d&quot;,&quot;s&quot;,&quot;a&quot;].forEach(function(key){
+  background[key] = forground[key]/2;
+})
+</code></pre><p>这段代码看起来像是两条语句，但由于已 “[” 开头，所以被解析成一条语句</p>
+<pre><code>a = b[&quot;d&quot;,&quot;s&quot;,&quot;a&quot;].forEach(function(key){
+   background[key] = forground[key]/2;
+})
+</code></pre><p>情况二</p>
+<pre><code>a = b
+var x
+(f())
+</code></pre><p>修改为</p>
+<pre><code>a = b
+var x
+;(f())
+</code></pre><h3 id="4、当脚本链接的时候，在脚本之间显示的插入分号"><a href="#4、当脚本链接的时候，在脚本之间显示的插入分号" class="headerlink" title="4、当脚本链接的时候，在脚本之间显示的插入分号"></a>4、当脚本链接的时候，在脚本之间显示的插入分号</h3><p>省略分号可能会导致脚本链接问题</p>
+<pre><code>(function(){
+//.........
+})()
+(function(){
+//.........
+})()
+(function(){
+//.........
+})()
+</code></pre><p>会被视为单独一条语句</p>
+<pre><code>(function(){
+//.........
+})()(function(){
+//.........
+})()(function(){
+//.........
+})()
+</code></pre><p>修改为</p>
+<pre><code>;(function(){
+//.........
+})()
+;(function(){
+//.........
+})()
+;(function(){
+//.........
+})()
+</code></pre><h3 id="5、在return、throw、break、continue、-或–的参数之前绝不能换行"><a href="#5、在return、throw、break、continue、-或–的参数之前绝不能换行" class="headerlink" title="5、在return、throw、break、continue、++或–的参数之前绝不能换行"></a>5、在return、throw、break、continue、++或–的参数之前绝不能换行</h3><pre><code>return
+ { };
+</code></pre><p>这段代码会被解析成三条独立的语句，等价于</p>
+<pre><code>return；
+ { }
+;
+</code></pre><h3 id="6、分号不能作为for循环的头部或空语句的分隔符而被推导出"><a href="#6、分号不能作为for循环的头部或空语句的分隔符而被推导出" class="headerlink" title="6、分号不能作为for循环的头部或空语句的分隔符而被推导出"></a>6、分号不能作为for循环的头部或空语句的分隔符而被推导出</h3><pre><code>for(var i = 0,total = 1
+i&lt;n
+i++){
+total++
+}
+</code></pre><p>上面这段代码不会自动的解析添加分号，所以会解析出错，无法执行</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/2016/05/26/Effective-Javascript-阅读笔记（1）-理解Javascript-的浮点数/">
+        Effective Javascript  阅读笔记（1）-理解Javascript 的浮点数  →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+<div class="ds-thread" data-thread-key="2016/05/26/Effective-Javascript-阅读笔记（2）-了解分号插入的局限/" data-title="Effective Javascript 阅读笔记（2）-了解分号插入的局限 " data-url="http://yoursite.com/2016/05/26/Effective-Javascript-阅读笔记（2）-了解分号插入的局限/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"zhaiyy"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+</div>
     </div>
 </section>
+
+
       
 <!-- ============================ Footer =========================== -->
 
