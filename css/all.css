@@ -3445,6 +3445,15 @@ footer .footer_bottom {
 .icon-github:before { content: "\e636"; }
 /*---------------- END ------------------------*/
 
+.header-title {
+	font-size: 80px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 500px;
+	color: #555;
+	font-family: fantasy;
+
+}
 @charset "utf-8";
 /* CSS Document */
 
@@ -3598,4 +3607,3 @@ pre .clojure .title {
 pre .deletion {
   color: #dc322f;
 }
-
