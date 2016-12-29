@@ -3343,3 +3343,7 @@ footer .footer_bottom {
 	font-family: fantasy;
 
 }
+a.active {
+	background-color: #808080;
+	color: white;
+}
