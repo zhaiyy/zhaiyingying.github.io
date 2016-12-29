@@ -3454,6 +3454,10 @@ footer .footer_bottom {
 	font-family: fantasy;
 
 }
+a.active {
+	background-color: #808080;
+	color: white;
+}
 @charset "utf-8";
 /* CSS Document */
 
