@@ -6,7 +6,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Zhai Yingying&#39;s Blog</title>
+  <title>Effective Javascript 阅读笔记（4）-JavaScript 三种不同的使用模式  | Zhai Yingying&#39;s Blog</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -73,7 +73,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -158,233 +158,98 @@
 
 
       
-<!-- ============================ Hero Image =========================== -->
-
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(/img/bg_img.jpg) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div>
-
-                        
-                        <h2>THANK YOU FOR <SPAN>COMMING</SPAN> IN MY NEST IN THE MOMENT,WELCOME</h2>
-                        <p></p>
-                        
-                        <h2></h2>
-                        <p><span>究竟什么时候才要收拾行囊，踏上去梦想的路?</span></p>
-                        
-
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
-<!-- ============================ Content =========================== -->
 <section id="intro">
-    <div class="user_info">
-        <div class="user_info_detail">
-            <h1>Zhai Yingying</h1>
-            <h2>
-                前端开发工程师
-            </h2>
-            <div class="user_info_count">
-                <i class="iconfont icon-notebook"></i>
-                <span>
-                <em>4</em> 篇文章</span>
-                <span>
-            <i class="iconfont icon-star"></i>
-            <i class="user_info_city">北京</i>
-            </span>
-            </div>
-            <div class="user_info_link">
-                <a href="https://github.com/zhaiyy" target="_blank" class="github">
-                    <i class="iconfont icon-github"></i>
-                    <span>github</span>
-
-                </a>
-                <a href="https://www.talkingcoder.com/user/6272112669910040806" target="_blank" class="website">
-                    <i class="iconfont icon-earth "></i>
-                    <span>个人博客</span>
-                </a>
-
-            </div>
-        </div>
-
-    </div>
-
     <div class="container">
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2016/05/26/Effective-Javascript-阅读笔记（1）-理解Javascript-的浮点数/">Effective Javascript  阅读笔记（1）-理解Javascript 的浮点数 </a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2016-05-26T04:00:00.000Z" itemprop="datePublished">
-          2016-05-26
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2017-01-11T07:12:47.000Z" itemprop="datePublished">
+          2017-01-11
       </time>
     
 </span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        对于数据类型，JavaScript 只有一种数据类型,无论是整数还是浮点，都会将它统一的处理为数字“number”类型。
-typeof 17// “number “
-typeof 95.2// “number “
-typeof -17// “number “
-JavaScript 中的所有数字都是双精度浮点数。（注：类型—double float数据类型，此数据类型与单精度数据类型(float)相似，但精确度比float高，编译时所占的
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2016/05/26/Effective-Javascript-阅读笔记（1）-理解Javascript-的浮点数/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
+                <h1>Effective Javascript 阅读笔记（4）-JavaScript 三种不同的使用模式 </h1>
             </div>
         </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2016/05/06/js代码实现-clipboard/">js代码实现 clipboard </a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2016-05-06T06:06:00.000Z" itemprop="datePublished">
-          2016-05-06
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        为了实现 clipboard的copy复制到剪切板的功能，自己费了不少时间，其中也尝试了一些插件，但由于与公司项目的框架使用上有冲突随意没少费时间。
-一开始想使用clipboard.js，这个js的使用方式非常的简单，只需要在html代码中把需要复制的内容放在data-clipboard-target属性中即可，但由于项目中使用的knockout框架，导致不生效。不过如果项目中没有使用的可以尝试一下。
-最终找到了使用原声js实现复制的功
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2016/05/06/js代码实现-clipboard/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p>在javascript中有三种不同的使用模式，函数调用，方法调用，通过构造函数使用。</p>
+<h3 id="1-函数调用"><a href="#1-函数调用" class="headerlink" title="1.函数调用"></a>1.函数调用</h3><pre><code>function hello (username) {
+    return &quot;hello, &quot; + username;
+}
+hello(&quot;han crewn&quot;);//&quot; hello, han crewn&quot;
+</code></pre><p>此段函数的表现与行为一致，调用hello 函数并且将参数传入。</p>
+<h3 id="2-方法调用"><a href="#2-方法调用" class="headerlink" title="2.方法调用"></a>2.方法调用</h3><p>javascript 中即，对象的属性为函数<br>var  对象 = {<br>   属性名:function() {}<br>}</p>
+<pre><code>var obj = {
+  hello: function() {
+    return  &quot;hello, &quot; + this.username;
+  },
+  username: &apos;han crewn&apos;
+};
+obj.hello();//&quot; hello, han crewn&quot;
+</code></pre><p>我们可以看到，在上述的例子中通过this变量访问了obj的属性。这是如何实现的？<br>在方法调用过程中，绑定的this变量成为接收者。表达式obj.hello()在obj对象中查找为hello的属性，并将obj对象作为接收者，然后调用该属性。通常，通过某个对象调用方法则将查找该方法并将该方法作为接收者。我们可以通过下面的例子来协助理解。</p>
+<pre><code>var obj2 = {
+  hello: obj.hello,
+  username: &apos;boo ranll&apos;
+};
+obj2.hello();//&quot; hello, boo ranll&quot;
+</code></pre><p>但是需要注意一点，普通的函数是不能直接引用this变量的。</p>
+<pre><code>function hello() {
+    return  &quot;hello, &quot; + this.username;
+  },
+var obj = {
+  hello: hello,
+  username: &apos;han crewn&apos;
+};
+var obj2 = {
+  hello: hello,
+  username: &apos;boo ranll&apos;
+};
+obj.hello();//&quot; hello, han crewn&quot;
+obj2.hello();//&quot; hello, boo ranll&quot;
+hello();//&quot;hello, undefined&quot;
+</code></pre><h3 id="3-构造函数使用"><a href="#3-构造函数使用" class="headerlink" title="3.构造函数使用"></a>3.构造函数使用</h3><pre><code>function User (name, password) {
+  this.name = name;
+  this.password = password;
+}
+//使用new 操作符来调用
+var u = new User(&apos;user&apos;, &apos;7eywuca&apos;);
+u.name;//&apos;user&apos;
+</code></pre><p>与函数调用不同的是，构造函数调用将一个全新的对象作为this变量的值，并隐式返回这个新对象作为调用结果。<br>三种方式在接收者上有明显的不同之处</p>
+<ul>
+<li>函数调用将全局作为接收者，一般很少使用函数调用来调用方法。</li>
+<li>方法调用将被查找方法属性的对象作为调用接收者。</li>
+<li>构造函数需要通过new运算符调用，并产生一个新的对象作为接收者。</li>
+</ul>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2016/05/01/hexo 使用简介/">hexo 使用简介</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2016-05-01T06:06:00.000Z" itemprop="datePublished">
-          2016-05-01
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new p
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2016/05/01/hexo 使用简介/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2016/05/01/hexo 个人博客创建 /">hexo 个人博客创建</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2016-05-01T05:00:13.000Z" itemprop="datePublished">
-          2016-05-01
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                         hexo是一款基于Node.js的静态博客框架,hexo github链接,这篇教程是针对与Mac的，参考链接，由于原文讲到的hexo是以前的老版本，所以现在的版本配置的时候会有些改动。
- 之前是想着写博客，一方面是给自己做笔记，可以提升自己的写作、总结能力，一个技术点我们会使用，并不难，但是要做到让让别人也能听懂我们讲得，还是需要一定的技巧和经验的。很多类似于CSDN、博客园也都可以写文章，但是页面的样式我，不是太喜欢，简书还算好点
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2016/05/01/hexo 个人博客创建 /">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
         <nav class="pagination" role="pagination">
-          <a class="pull-left" href="/">← Prev</a>
-            <span style="margin-left: 30%">
-                <a href="/">First</a>
-                
-                
-                
-                <a href="/">1</a>
-                
-                
-                
-                
-                
-                <a class="active" href="/page/2">2</a>
-                
-                
-                
-                
-                <a href="/page/2">Last</a>
-                
-            </span>
-            
-        </nav>
+    
+    
+    <a class="pull-right" href="/2016/12/27/质因数分解法、短除法、辗转相除法、更相减损法求最大公约数/">
+         质因数分解法、短除法、辗转相除法、更相减损法求最大公约数 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+<div class="ds-thread" data-thread-key="2017/01/11/Effective-Javascript-阅读笔记（4）-JavaScript-三种不同的使用模式/" data-title="Effective Javascript 阅读笔记（4）-JavaScript 三种不同的使用模式 " data-url="http://yoursite.com/2017/01/11/Effective-Javascript-阅读笔记（4）-JavaScript-三种不同的使用模式/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"zhaiyy"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+</div>
     </div>
 </section>
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>一个非专业前端程序媛</p>
-        </div>
-    </div>
-</section>
-<!-- ============================ END Content =========================== -->
+
 
       
 <!-- ============================ Footer =========================== -->
