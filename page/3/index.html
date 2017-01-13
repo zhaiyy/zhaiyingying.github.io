@@ -200,7 +200,7 @@
             <div class="user_info_count">
                 <i class="iconfont icon-notebook"></i>
                 <span>
-                <em>5</em> 篇文章</span>
+                <em>1</em> 篇文章</span>
                 <span>
             <i class="iconfont icon-star"></i>
             <i class="user_info_city">北京</i>
@@ -227,11 +227,11 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
-                    <h3><a href="/2017/01/13/Effective-Javascript-阅读笔记（6）-Javascript-原型链继承/"> Effective Javascript 阅读笔记（6）-Javascript 原型链继承</a></h3>
+                    <h3><a href="/2016/05/01/hexo 个人博客创建 /">hexo 个人博客创建</a></h3>
                     <span>
                         <span class="post-meta">
-      <time datetime="2017-01-13T03:41:07.000Z" itemprop="datePublished">
-          2017-01-13
+      <time datetime="2016-05-01T05:00:13.000Z" itemprop="datePublished">
+          2016-05-01
       </time>
     
 </span>
@@ -240,160 +240,13 @@
                 <div class="col-md-8">
                     <p>
                       
-                        向很多面向对象的语言一样，javascript支持继承。但是又不像一些传统的语言，javascript继承机制是基于原型，而不是类。简单白话理解即：B如果想继承A的属性和方法，只需要把A的一个实例给B的原型链就可以了。原型有几个独立，但是相关的访问器。
-
-C.prototype 用于建立由new C()创建的对象的原型
-每一个函数都有一个天生自带的属性：prototype（普通函数也有，只不过没有什么意义）
-只有在构造函数模式中，才能发
+                         hexo是一款基于Node.js的静态博客框架,hexo github链接,这篇教程是针对与Mac的，参考链接，由于原文讲到的hexo是以前的老版本，所以现在的版本配置的时候会有些改动。
+ 之前是想着写博客，一方面是给自己做笔记，可以提升自己的写作、总结能力，一个技术点我们会使用，并不难，但是要做到让让别人也能听懂我们讲得，还是需要一定的技巧和经验的。很多类似于CSDN、博客园也都可以写文章，但是页面的样式我，不是太喜欢，简书还算好点
                       
                     </p>
                     
                     <p class="pull-right readMore">
-                        <a href="/2017/01/13/Effective-Javascript-阅读笔记（6）-Javascript-原型链继承/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2017/01/12/Effective-Javascript-阅读笔记（5）-JavaScript-高阶函数/">Effective Javascript 阅读笔记（5）-JavaScript 高阶函数</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2017-01-12T03:09:33.000Z" itemprop="datePublished">
-          2017-01-12
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        所谓高阶函数，将函数作为参数或返回值的函数。将函数作为参数，通常又叫做回调函数。下面我们通过几个例子来理解一下高阶函数的定义。
-函数作为参数函数数组的sort方法
-function compareNumber(x, y) {
-    if (x &lt; y) {
-        return -1;
-    }
-    if (x &gt; y) {
-        return 1;
-    }
-    return 0;
-}
-[3
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2017/01/12/Effective-Javascript-阅读笔记（5）-JavaScript-高阶函数/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2017/01/11/Effective-Javascript-阅读笔记（4）-JavaScript-三种不同的使用模式/">Effective Javascript 阅读笔记（4）-JavaScript 三种不同的使用模式 </a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2017-01-11T07:12:47.000Z" itemprop="datePublished">
-          2017-01-11
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        在javascript中有三种不同的使用模式，函数调用，方法调用，通过构造函数使用。
-1.函数调用function hello (username) {
-    return &quot;hello, &quot; + username;
-}
-hello(&quot;han crewn&quot;);//&quot; hello, han crewn&quot;
-此段函数的表现与行为一致，调用hello 函数并且将参数传入。
-2.方法调
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2017/01/11/Effective-Javascript-阅读笔记（4）-JavaScript-三种不同的使用模式/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2016/12/27/质因数分解法、短除法、辗转相除法、更相减损法求最大公约数/"> 质因数分解法、短除法、辗转相除法、更相减损法求最大公约数</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2016-12-27T05:38:43.000Z" itemprop="datePublished">
-          2016-12-27
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        通常我们在面试中都会遇到一道面试题，求两个数的最大公约数。这个我就深入理解，并解析一下这个题目。
-首先，我们得理解，什么是最大公约数？以下是网上给出的答案：
-最大公因数，也称最大公约数、最大公因子，指两个或多个整数共有约数中最大的一个。a，b的最大公约数记为（a，b），同样的，a，b，c的最大公约数记为（a，b，c），多个整数的最大公约数也有同样的记号。
-简单来说，也就是能够同时被两个数整初的数中，最大的那一个。在数学中，我们求最大公约
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2016/12/27/质因数分解法、短除法、辗转相除法、更相减损法求最大公约数/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2016/10/27/使用xlsx 实现纯前端的上传excel，并解析显示 /">  使用xlsx 实现纯前端的上传excel，并解析显示</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2016-10-27T05:15:28.000Z" itemprop="datePublished">
-          2016-10-27
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        传统意义上的，如果我们需要上传excel文件后显示到前端页面，需要我们上传给后台，然后后台进行数据解析，再把数据返回给前端，前端在页面显示内容。这无疑很浪费时间，本次尝试使用xlsx.js进行上传，前端可以自己进行数据解析。项目展示: https://zhaiyy.github.io/js-xlsx_upload_excel/
-我们可以看到官网文档中，提供了一下几个方式的例子
-
-node readFile
-ajax (for a mor
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2016/10/27/使用xlsx 实现纯前端的上传excel，并解析显示 /">Read More...</a>
+                        <a href="/2016/05/01/hexo 个人博客创建 /">Read More...</a>
                     </p>
                     
                 </div>
@@ -403,13 +256,13 @@ ajax (for a mor
         </div>
         
         <nav class="pagination" role="pagination">
-          
+          <a class="pull-left" href="/page/2/">← Prev</a>
             <span style="margin-left: 30%">
                 <a href="/">First</a>
                 
                 
                 
-                <a class="active" href="/">1</a>
+                <a href="/">1</a>
                 
                 
                 
@@ -421,7 +274,7 @@ ajax (for a mor
                 
                 
                 
-                <a href="/page/3">3</a>
+                <a class="active" href="/page/3">3</a>
                 
                 
                 
@@ -429,7 +282,7 @@ ajax (for a mor
                 <a href="/page/3">Last</a>
                 
             </span>
-            <a class="pull-right" href="/page/2/">Next →</a>
+            
         </nav>
     </div>
 </section>

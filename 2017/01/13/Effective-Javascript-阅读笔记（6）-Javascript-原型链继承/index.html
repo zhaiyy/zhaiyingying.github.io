@@ -6,7 +6,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Effective Javascript 阅读笔记（5）-JavaScript 高阶函数 | Zhai Yingying&#39;s Blog</title>
+  <title> Effective Javascript 阅读笔记（6）-Javascript 原型链继承 | Zhai Yingying&#39;s Blog</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -163,119 +163,97 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2017-01-12T03:09:33.000Z" itemprop="datePublished">
-          2017-01-12
+      <time datetime="2017-01-13T03:41:07.000Z" itemprop="datePublished">
+          2017-01-13
       </time>
     
 </span>
-                <h1>Effective Javascript 阅读笔记（5）-JavaScript 高阶函数</h1>
+                <h1> Effective Javascript 阅读笔记（6）-Javascript 原型链继承</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>所谓高阶函数，将函数作为参数或返回值的函数。将函数作为参数，通常又叫做回调函数。下面我们通过几个例子来理解一下高阶函数的定义。</p>
-<h3 id="函数作为参数"><a href="#函数作为参数" class="headerlink" title="函数作为参数"></a>函数作为参数</h3><p>函数数组的sort方法</p>
-<pre><code>function compareNumber(x, y) {
-    if (x &lt; y) {
-        return -1;
-    }
-    if (x &gt; y) {
-        return 1;
-    }
-    return 0;
-}
-[3, 1, 4, 1, 5, 9].sort(compareNumber); //[1, 1, 3, 4, 5, 9]
-</code></pre><p>标准库需要传递一个具有compare的方法作为对象，这就是一个高阶函数。我们可以简化为匿名函数。</p>
-<pre><code>[3, 1, 4, 1, 5, 9].sort( function (x, y) {
-    if (x &lt; y) {
-        return -1;
-    }
-    if (x &gt; y) {
-        return 1;
-    }
-    return 0;
-}); //[1, 1, 3, 4, 5, 9]
-</code></pre><p> 掌握了这个方法，我们就可以用高阶函数简化自己的代码。需要引入高阶函数抽象的信号<strong>出现重复或相似的代码</strong>，例：</p>
-<pre><code>//生成a-z英文字母构造的字符串
-var aIndex = &apos;a&apos;.charCodeAt(0);//97
-var alphabet = &apos;&apos;;
-for(var i = 0; i &lt; 26; i++) {
-    alphabet += String.fromCharCode(aIndex + i);
-}
-alphabet//&apos;abcdefghigklmnopqistuvwxyz&apos;
-//生成0-9的数字字符串
-var digits = &apos;&apos;;
-for(var i = 0; i &lt; 10; i++) {
-    digits += i;
-}
-digits//&apos;0123456789&apos;
-//生成随机字符串
-var random = &apos;&apos;;
-for(var i = 0; i &lt; 8; i++) {
-    random += String.fromCharCode(Math.floor(Math.random()*26)+aIndex);
-}
-random//&apos;bdwvfrtp&apos;(different result each time )
-</code></pre><p>我们可以看到虽然这三个函数的结果以及方法都不相同，但是我们不难发现，其中都用到了for循环以及累加的相似逻辑。所以我们可以提取相同的部分，简化函数</p>
-<pre><code>//提出公用的部分
-function buildString(n, callback) {
-    var result = &apos;&apos;;
-    for(var i = 0; i &lt; n; i++) {
-        result += callback (i);
-    }
-    return result;
-}
-//简化上面的三个例子
-var alphabet = buildString(26, function(i) {
-    return String.fromCharCode(aIndex + i);
-})
-var digits = buildString(10, function(i) {
-    return i;
-})
-var random = buildString(8, function(i) {
-    return String.fromCharCode(Math.floor(Math.random() * 26) + aIndex)
-})
-</code></pre><p>这样把高阶函数抽象出来</p>
-<ul>
-<li>可以增加函数的可读性</li>
-<li>更简洁，利于函数的维护</li>
-<li>更高效，增强了函数的可扩展性</li>
+      		<p>向很多面向对象的语言一样，javascript支持继承。但是又不像一些传统的语言，javascript继承机制是基于原型，而不是类。简单白话理解即：B如果想继承A的属性和方法，只需要把A的一个实例给B的原型链就可以了。<br>原型有几个独立，但是相关的访问器。</p>
+<ol>
+<li>C.prototype 用于建立由new C()创建的对象的原型<ul>
+<li>每一个函数都有一个天生自带的属性：prototype（普通函数也有，只不过没有什么意义）</li>
+<li>只有在构造函数模式中，才能发挥效果，prototype属性存储的是一个对象数据类型的值</li>
+<li>这个对象中有一个自己特殊的属性：constructor，其有指回函数自己</li>
 </ul>
-<h3 id="函数作为返回值"><a href="#函数作为返回值" class="headerlink" title="函数作为返回值"></a>函数作为返回值</h3><p>一个简单的惰性加载的案例，浏览器检测。比如返回顶部，我们需要区分火狐浏览器还是其他浏览器来决定scrollTop 的赋值。</p>
-<pre><code>// 一般的写法
-var gotop = function(){
-    if(/firefox/i.test(navigator.userAgent)) {
-        document.documentElement.scrollTop = 0;
-    } else {
-        document.body.scrollTop = 0;
-    }
-    }
-</code></pre><p>但是会有一个不完美的地方，当我们在代码中需要多处使用调用此函数的时候，我们每次都需要重新获取navigator.userAgent，然后进行判断，会多做一些无用功。所以我们进行一下改造</p>
-<pre><code>var gotop = (function(){
-    var isFF = /firefox/i.test(navigator.userAgent);
-    var docEl = document[ isFF ? &apos;documentElement&apos; : &apos;body&apos; ];
-    return function(){
-        docEl.scrollTop = 0;
-    }
-    })();
-</code></pre><p>  这样，改造完成之后，第一次进入浏览器的时候，浏览器的当前属性就已经赋值到gotop这个参数中并存储，当我们再次需要使用的时候，仅调用gotop这个参数就可以了不需要二次判断，提高了代码的效率。</p>
+</li>
+<li>obj.<em>proto</em> 获取obj对象的原型对象的非标准方法，每一个对象数据类型（或实例）天生自带的属性</li>
+<li>Object.getPrototypeOf(obj)是ES5中用来获取obj对象的原型对象的标准方法</li>
+<li>Object.hasOwnProperty(obj)用来检查某一个属性是否属于某一个对象的私有属性<br>这样理解起来比较抽象，下面通过下面的例子进行深入的理解</li>
+</ol>
+<pre><code>function User(name, passwordHash) {
+    this.name = name;
+    this.passwordHash = passwordHash;
+}
+User.prototype.toString = function(){
+    return &quot;[User&quot; + this.name + &quot;]&quot;;
+};
+User.prototype.checkPassword = function(password){
+    return hash(password) === this.passwordHash;
+};
+var u = new User(&apos;test&apos;, &apos;97qhjshy8274q298&apos;);
+</code></pre><p><img src="quiver-image-url/user.png" alt=""><br>通过图片我们可以深入的对以上代码进行分析</p>
+<ul>
+<li>User 函数自带有一个默认的prototype属性</li>
+<li>添加了两个方法toString和checkPassword到 User.prototype</li>
+<li>使用new创建User的实例时，产生的对象u相应的会得到自动分配的原型对象，该原型对象存储在User.prototype</li>
+</ul>
+<p>我们可以验证一下，对象u自动分配的原型对象是否存储在User.prototype中。ES5中的函数Object.getPrototypeOf(obj)用于检索现有的对象原型。</p>
+<pre><code>Object.getPrototypeOf(u) === User.prototype;//true
+</code></pre><p>由此可以验证以上的说法。<br>从图中我们还可以看出，实力对象u有一个自带的属性<em>proto</em>,这个属性指向 User.prototype<br>我们可以来验证一下</p>
+<pre><code>u._proto_ === User.prototype;//true
+</code></pre><p>  由此可说明。这也表明了它们之间的继承关系。<br>  例如当创建u之后，u会在带有u.name ,u.passwordHash的私有属性，但当我们调用u.checkPassword的时候也是可以成功获取到的，这是因为当我们调用一个实力对象的某一属性时，首先在自己的私有属性上找有没有，如果有的话就执行私有的，如果没有就通过<strong>proto</strong>找到他所属的类的原型链上找定义的公有属性。这便是原型链的继承关系。下面我们通过另一个例子辅助理解。</p>
+<pre><code>function A(x) {
+    this.x1 = x;
+    this.get1 = function() {
+        return this.x1;
+    };
+    A.prototype.sum = function() {
+        console.log(&quot;ok&quot;)
+    };
+};
+function B(x) {
+    this.x2 = x;
+    this.get2 = function() {
+        return this.x2 + this.x2;
+    };
+};
+B.prototype.sum = function() {
+    console.log(&quot;no&quot;);
+};
+B.prototype = new A(1);
+var b = new B(2);
+b.sum();//ok--&gt;相当于b.__proto__.__proto__.sum();
+console.log(B.prototype.__proto__ == A.prototype); //true
+</code></pre><p><img src="quiver-image-url/a.png" alt=""></p>
+<ul>
+<li>创建一个A函数，有私有属性x1,get1</li>
+<li>给函数A 添加了一个方法sum到 A.prototype</li>
+<li>创建一个B函数，有私有属性x2,get2</li>
+<li>给函数B 添加了一个方法sum到 B.prototype</li>
+<li>创建了一个实力对象new A(1)</li>
+<li>把new A(1）赋值给B.prototype，即B.prototype不再是之前的,而是指向了new A(1）</li>
+<li>创建了一个B的实例对象b</li>
+<li>获取b.sum,b中私有属性并没有sum函数，则通过b的<em>proto</em>寻找其原型链new A(1），然而new A(1）也没有此函数，则继续通过new A(1）的<em>proto</em>寻找其原型链A，所以最终结果返回OK</li>
+</ul>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/2017/01/13/Effective-Javascript-阅读笔记（6）-Javascript-原型链继承/" style="float: left;">
-        ←  Effective Javascript 阅读笔记（6）-Javascript 原型链继承
-    </a>
     
-    
-    <a class="pull-right" href="/2017/01/11/Effective-Javascript-阅读笔记（4）-JavaScript-三种不同的使用模式/">
-        Effective Javascript 阅读笔记（4）-JavaScript 三种不同的使用模式  →
+    <a class="pull-right" href="/2017/01/12/Effective-Javascript-阅读笔记（5）-JavaScript-高阶函数/">
+        Effective Javascript 阅读笔记（5）-JavaScript 高阶函数 →
     </a>
     
 </nav>
 
         <div class="duoshuo">
-<div class="ds-thread" data-thread-key="2017/01/12/Effective-Javascript-阅读笔记（5）-JavaScript-高阶函数/" data-title="Effective Javascript 阅读笔记（5）-JavaScript 高阶函数" data-url="http://yoursite.com/2017/01/12/Effective-Javascript-阅读笔记（5）-JavaScript-高阶函数/"></div>
+<div class="ds-thread" data-thread-key="2017/01/13/Effective-Javascript-阅读笔记（6）-Javascript-原型链继承/" data-title=" Effective Javascript 阅读笔记（6）-Javascript 原型链继承" data-url="http://yoursite.com/2017/01/13/Effective-Javascript-阅读笔记（6）-Javascript-原型链继承/"></div>
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"zhaiyy"};
 (function() {
