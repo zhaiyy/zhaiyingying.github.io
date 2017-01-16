@@ -172,7 +172,8 @@
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>向很多面向对象的语言一样，javascript支持继承。但是又不像一些传统的语言，javascript继承机制是基于原型，而不是类。简单白话理解即：B如果想继承A的属性和方法，只需要把A的一个实例给B的原型链就可以了。<br>原型有几个独立，但是相关的访问器。</p>
+      		<p>向很多面向对象的语言一样，javascript支持继承。但是又不像一些传统的语言，javascript继承机制是基于原型，而不是类。简单白话理解即：B如果想继承A的属性和方法，只需要把A的一个实例给B的原型链就可以了。</p>
+<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p>原型有几个独立，但是相关的访问器。</p>
 <ol>
 <li>C.prototype 用于建立由new C()创建的对象的原型<ul>
 <li>每一个函数都有一个天生自带的属性：prototype（普通函数也有，只不过没有什么意义）</li>
@@ -182,7 +183,7 @@
 </li>
 <li>obj.<em>proto</em> 获取obj对象的原型对象的非标准方法，每一个对象数据类型（或实例）天生自带的属性</li>
 <li>Object.getPrototypeOf(obj)是ES5中用来获取obj对象的原型对象的标准方法</li>
-<li>Object.hasOwnProperty(obj)用来检查某一个属性是否属于某一个对象的私有属性<br>这样理解起来比较抽象，下面通过下面的例子进行深入的理解</li>
+<li>Object.hasOwnProperty(obj)用来检查某一个属性是否属于某一个对象的私有属性<br>这样理解起来比较抽象，下面通过下面的例子进行深入的理解<br><strong>例一</strong></li>
 </ol>
 <pre><code>function User(name, passwordHash) {
     this.name = name;
@@ -206,6 +207,7 @@ var u = new User(&apos;test&apos;, &apos;97qhjshy8274q298&apos;);
 </code></pre><p>由此可以验证以上的说法。<br>从图中我们还可以看出，实力对象u有一个自带的属性<em>proto</em>,这个属性指向 User.prototype<br>我们可以来验证一下</p>
 <pre><code>u._proto_ === User.prototype;//true
 </code></pre><p>  由此可说明。这也表明了它们之间的继承关系。<br>  例如当创建u之后，u会在带有u.name ,u.passwordHash的私有属性，但当我们调用u.checkPassword的时候也是可以成功获取到的，这是因为当我们调用一个实力对象的某一属性时，首先在自己的私有属性上找有没有，如果有的话就执行私有的，如果没有就通过<strong>proto</strong>找到他所属的类的原型链上找定义的公有属性。这便是原型链的继承关系。下面我们通过另一个例子辅助理解。</p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p><strong>例二</strong></p>
 <pre><code>function A(x) {
     this.x1 = x;
     this.get1 = function() {
@@ -239,6 +241,22 @@ console.log(B.prototype.__proto__ == A.prototype); //true
 <li>创建了一个B的实例对象b</li>
 <li>获取b.sum,b中私有属性并没有sum函数，则通过b的<em>proto</em>寻找其原型链new A(1），然而new A(1）也没有此函数，则继续通过new A(1）的<em>proto</em>寻找其原型链A，所以最终结果返回OK</li>
 </ul>
+<h3 id="原型中的存储方法"><a href="#原型中的存储方法" class="headerlink" title="原型中的存储方法"></a>原型中的存储方法</h3><p>javascript 完全可以不用原型进行编程<br><strong>例三</strong></p>
+<pre><code>function User(name, passwordHash) {
+    this.name = name;
+    this.passwordHash = passwordHash;
+    this.toString = function(){
+    return &quot;[User&quot; + this.name + &quot;]&quot;;
+    };
+    this.checkPassword = function(password){
+    return hash(password) === this.passwordHash;
+    };
+}
+</code></pre><p>以上的程序跟例一的行为几乎是一样的，但是当我们构造多个实例时，一个重要的区别就暴漏出来了。</p>
+<pre><code>var u1 = new User(&apos;test1&apos;, &apos;97qhjshy8274q298&apos;);
+var u2 = new User(&apos;test2&apos;, &apos;97qhjshy8274q298&apos;);
+var u3 = new User(&apos;test3&apos;, &apos;97qhjshy8274q298&apos;);
+</code></pre><p>如果用例三创建三个实例，则原型个结构图如下<br><img src="quiver-image-url/user_01.png" alt=""><br>由于每个实例中都包含toString和checkPassword，而不是通过原型创建的，所以会有六个函数对象。<br>如果用例一创建三个实力，则原型图如下<br><img src="quiver-image-url/user_02.png" alt=""><br>从原型结构图中我们可以看到，toString和checkPassword方法只被创建了一次，对象实例间通过原型进行共享。<br>将方法存储在原型中，使其可以被所有的实例使用，而不需要存储方法实现的多个副本，也不需要给每个实例对象增加额外的属性。你可能认为将方法存储在实例对象中会会优化方法查找的速度，例如u3.toString()方法，不需要搜索原型链来查找toString的实例。然而，现代的javascript 引擎深度优化了原型查找，所以将方法复制到实例对象并不一定保证明显的速度提升。而且实例方法肯定会占用更多的内存。<br>所以说将方法存储在原型中优于存储在实例对象中。</p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
