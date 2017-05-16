@@ -1,29 +1,127 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>分享测试</title>
+    <meta charset="utf8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>KNB</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <script src="https://s0.meituan.net/bs/knb/v1.2.4/knb.js"></script>
     <script src="../js/jquery-1.11.1.min.js"></script>
-  <script src="https://s0.meituan.net/bs/knb/v1.3.9/knb.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function(){
-      alert("run");
-      KNB.configShare({
-        title:"分享标题",
-        desc:"分享描述",
-        image:"http://www.dpfile.com/toevent/img/16d05c85a71b135edc39d197273746d6.png",
-        url:"http://m.dianping.com",
-        channel: [KNB.share.WECHAT_FRIENDS,KNB.share.WECHAT_TIMELINE],
-        handle: function(){
-          alert('分享按钮被点击了');
-        },
-        success: function(channel){
-          alert('分享成功');
+    <style>
+        .casebtn {
+            min-width: 200px;
+            padding: 10px;
         }
-      });
-   
-    });
-  </script>	
+
+    </style>
 </head>
 <body>
+<div id="configShare" class="casebtn">分享</div>
+<script>
+
+    $("#titleImage").click(function () {
+        KNB.use("waimai.waimaiSetTitleImageURL", {
+            titleImageUrl: "http://p1.meituan.net/codeman/03faf5af9c0f373e39259bf3812ba2b74425.png",
+            success: function (ret) {
+                alert("成功");
+            },
+            fail: function (ret) {
+                alert(ret.errorMsg);
+            }
+        });
+    });
+
+    $("#hertzMetric").click(function () {
+        KNB.use("waimai.hertzMetric", {
+            page: "hehe",
+            step: 2,
+            startTime: 2313611,
+            interval: 2000,
+            success: function (ret) {
+                alert("成功");
+            },
+            fail: function (ret) {
+                alert(ret.errorMsg);
+            }
+        });
+    });
+
+    $("#shareCommon").click(function () {
+        KNB.use("waimai.shareCommon", {
+            channel: "640",
+            content: "呵呵",
+            "content_-1": "呵呵",
+            "description_icon": "http://p1.meituan.net/xianfu/1368eb6dfafce0a1bea172fb52c821662048.png",
+            detailURL: "http://i.c.waimai.test.sankuai.com/external/poi/604164?from_act_id=101",
+            imageURL: "http://p0.meituan.net/xianfu/bfc635639c6b20b6b15ca6cb461ee40c22528.jpg",
+            title: "呵呵",
+            success: function (ret) {
+                alert("成功");
+            },
+            fail: function (ret) {
+                alert(ret.errorMsg);
+            }
+        });
+    });
+
+    $("#uploadImage").click(function () {
+        KNB.use("waimai.uploadImage", {
+            // 可以在这里添加 cookies
+            // A: xxxxx,
+            // B: xxxxx,
+            success: function (ret) {
+                alert("成功，path=" + ret.path);
+            },
+            fail: function (ret) {
+                alert(ret.errorMsg);
+            }
+        });
+    });
+
+    $("#getRiderMessage").click(function () {
+        KNB.use("waimai.getRiderMessage", {
+            success: function (data) {
+                alert(JSON.stringify(data.message));
+            },
+            fail: function (error) {
+                alert(error.errorMsg);
+            }
+        });
+    });
+
+    $("#getPushToken").click(function () {
+        KNB.use("waimai.waimaiGetPushToken", {
+            success: function (data) {
+                alert("push_token=" + data.push_token);
+            },
+            fail: function (error) {
+                alert(error.errorMsg);
+            }
+        });
+    });
+
+    $("#jumpWebview").click(function () {
+        KNB.jumpWebview({
+            url: 'meituanwaimai://waimai.meituan.com/menu?restaurant_id=1904097'  //需要打开的完整http链接
+        });
+    });
+
+    $("#configShare").click(function () {
+        KNB.configShare({
+            title: "分享标题",
+            desc: "分享描述",
+            image: "http://www.dpfile.com/toevent/img/16d05c85a71b135edc39d197273746d6.png",
+            url: "http://m.dianping.com",
+            channel: [KNB.share.WECHAT_FRIENDS, KNB.share.WECHAT_TIMELINE],
+            handle: function () {
+                alert('分享按钮被点击了');
+            },
+            success: function (channel) {
+                alert('分享成功');
+            }
+        });
+    });
+</script>
 </body>
 </html>
