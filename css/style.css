@@ -156,7 +156,7 @@ div {
         -moz-box-shadow: none;
         box-shadow: none; }
 
-#sidebar[data-fixed="fixed"] {
+#toc-widget[data-fixed="fixed"] {
   position: fixed;
   top: 0px; }
 

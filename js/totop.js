@@ -5,7 +5,10 @@ $(window).scroll(function() {
      * 在这里我给obj添加一个自定义属性。className可能会影响原有的class
      * 三元运算使代码更简洁
      */
-    $('#sidebar')[0].setAttribute("data-fixed",st >= 160?"fixed":"");
+    if(!$('#toc-widget')[0]){return}
+    var $prevSibling = $($('#toc-widget').prev())
+    var ot = $prevSibling[0].offsetTop + $prevSibling.height()
+    $('#toc-widget')[0].setAttribute("data-fixed",st >= ot?"fixed":"");
 });
 $("#rocket").click(function() {
     $("#rocket").addClass("launch");
