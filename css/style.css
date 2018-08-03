@@ -93,6 +93,9 @@ div {
         border: 1px solid #ddd;
         border-bottom-color: #fff; }
 
+#sidebar-box {
+  position: relative; }
+
 #sidebar {
   border-left: 1px solid #ddd;
   padding-left: 35px;
@@ -152,6 +155,10 @@ div {
         -webkit-box-shadow: none;
         -moz-box-shadow: none;
         box-shadow: none; }
+
+#sidebar[data-fixed="fixed"] {
+  position: fixed;
+  top: 0px; }
 
 /* title for search result or tagged posts*/
 .label-title {
