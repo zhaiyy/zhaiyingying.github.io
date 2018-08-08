@@ -7,7 +7,7 @@ $(window).scroll(function() {
      */
     if(!$('#toc-widget')[0]){return}
     var $prevSibling = $($('#toc-widget').prev())
-    var ot = $prevSibling[0].offsetTop + $prevSibling.height()
+    var ot = $prevSibling[0].offsetTop + $prevSibling[0].offsetHeight+180
     $('#toc-widget')[0].setAttribute("data-fixed",st >= ot?"fixed":"");
 });
 $("#rocket").click(function() {
